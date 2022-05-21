@@ -49,5 +49,6 @@ public class TestForm {
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
     }
 }
