@@ -3,6 +3,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.assertj.core.api.Assertions.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -50,5 +51,7 @@ public class TestForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+
     }
 }
