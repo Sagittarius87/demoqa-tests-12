@@ -1,17 +1,20 @@
-import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.assertj.core.api.Assertions.*;
 
 import java.io.File;
-import java.io.FileWriter;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm {
+
+    String firstName = "Bob";
+    String lastName = "Rob";
+    String userEmail = "Bob@sobaka.com";
+    String userNumber = "1111111111";
+    String dateOfBirthInput = "20 May 2022";
+    String subjectsInput = "Maths";
+    String currentAddress = "ulitsa Lesnaya, 5, kv. 176 Moscow Russia 125075";
 
     @BeforeAll
     static void setUp() {
@@ -28,14 +31,6 @@ public class TestForm {
 
     @Test
     void fillForm() {
-        String firstName = "Bob";
-        String lastName = "Rob";
-        String userEmail = "Bob@sobaka.com";
-        String userNumber = "1111111111";
-        String dateOfBirthInput = "20 May 2022";
-        String subjectsInput = "M";
-        String currentAddress = "ulitsa Lesnaya, 5, kv. 176\nMoscow\nRussia\n125075";
-
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
@@ -51,7 +46,21 @@ public class TestForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+    }
 
-
+    @AfterEach
+    void checkTable() {
+        $(".modal-content").isEnabled();
+        $("table").$("tbody").$(byText(firstName + " " + lastName));
+        $("table").$("tbody").$(byText(userEmail));
+        $("table").$("tbody").$(byText("Male"));
+        $("table").$("tbody").$(byText(userNumber));
+        $("table").$("tbody").$(byText(dateOfBirthInput));
+        $("table").$("tbody").$(byText(subjectsInput));
+        $("table").$("tbody").$(byText("Sports"));
+        $("table").$("tbody").$(byText("image.jpg"));
+        $("table").$("tbody").$(byText(currentAddress));
+        $("table").$("tbody").$(byText("NCR" + " " + "Delhi"));
+        $("#closeLargeModal").click();
     }
 }
