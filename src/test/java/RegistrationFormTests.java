@@ -6,7 +6,7 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestForm {
+public class RegistrationFormTests {
 
     String firstName = "Bob";
     String lastName = "Rob";
