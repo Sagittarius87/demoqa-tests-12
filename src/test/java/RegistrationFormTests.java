@@ -30,7 +30,7 @@ public class RegistrationFormTests {
     }
 
     @Test
-    void fillForm() {
+    void fillFormTest() {
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
