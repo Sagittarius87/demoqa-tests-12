@@ -36,7 +36,8 @@ public class RegistrationFormTests {
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
+        //$(byText("Male")).click();
         $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").setValue(dateOfBirthInput).pressEnter();
         $("#subjectsInput").setValue(subjectsInput).pressEnter();
