@@ -39,7 +39,11 @@ public class RegistrationFormTests {
         $("#genterWrapper").$(byText("Male")).click();
         //$(byText("Male")).click();
         $("#userNumber").setValue(userNumber);
-        $("#dateOfBirthInput").setValue(dateOfBirthInput).pressEnter();
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("July");
+        $(".react-datepicker__year-select").selectOption("2022");
+        $(".react-datepicker__day--005:not(.react-datepicker__day--outside-month)").click();
+        //$("#dateOfBirthInput").setValue(dateOfBirthInput).pressEnter();
         $("#subjectsInput").setValue(subjectsInput).pressEnter();
         $(byText("Sports")).click();
         $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
