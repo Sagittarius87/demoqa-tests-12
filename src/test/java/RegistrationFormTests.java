@@ -45,7 +45,8 @@ public class RegistrationFormTests {
         $(".react-datepicker__day--005:not(.react-datepicker__day--outside-month)").click();
         //$("#dateOfBirthInput").setValue(dateOfBirthInput).pressEnter();
         $("#subjectsInput").setValue(subjectsInput).pressEnter();
-        $(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        //$(byText("Sports")).click();
         $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
