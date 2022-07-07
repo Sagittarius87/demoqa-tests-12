@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
@@ -27,6 +28,7 @@ public class RegistrationFormTests {
     @BeforeEach
     void openSite() {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(Condition.text("Student Registration Form"));
     }
 
     @Test
