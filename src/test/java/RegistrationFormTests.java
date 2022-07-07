@@ -2,8 +2,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -47,7 +45,8 @@ public class RegistrationFormTests {
         $("#subjectsInput").setValue(subjectsInput).pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         //$(byText("Sports")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
+        $("#uploadPicture").uploadFromClasspath("img/image.jpg");
+        //$("#uploadPicture").uploadFile(new File("src/test/resources/image.jpg"));
         $("#currentAddress").setValue(currentAddress);
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
@@ -66,7 +65,7 @@ public class RegistrationFormTests {
         $("table").$("tbody").$(byText(dateOfBirthInput));
         $("table").$("tbody").$(byText(subjectsInput));
         $("table").$("tbody").$(byText("Sports"));
-        $("table").$("tbody").$(byText("image.jpg"));
+        $("table").$("tbody").$(byText("img/image.jpg"));
         $("table").$("tbody").$(byText(currentAddress));
         $("table").$("tbody").$(byText("NCR" + " " + "Delhi"));
         $("#closeLargeModal").click();
