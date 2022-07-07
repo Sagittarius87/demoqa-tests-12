@@ -58,6 +58,7 @@ public class RegistrationFormTests {
     @AfterEach
     void checkTable() {
         $(".modal-content").isEnabled();
+        $("#example-modal-sizes-title-lg").shouldHave(Condition.text("Thanks for submitting the form"));
         $("table").$("tbody").$(byText(firstName + " " + lastName));
         $("table").$("tbody").$(byText(userEmail));
         $("table").$("tbody").$(byText("Male"));
