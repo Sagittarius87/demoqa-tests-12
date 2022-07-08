@@ -2,10 +2,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,12 +19,13 @@ public class RegistrationFormTests {
     String[] hobbiesWrapper = new String[]{"Sports", "Reading", "Music"};
     String currentAddress = "ulitsa Lesnaya, 5, kv. 176 Moscow Russia 125075";
     String filePath = "img/image.jpg";
+    String fileName = "image.jpg";
     String[] state = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
     String[][] city = new String[][]{
-            {"Delhi","Gurgaon","Noida"},
-            {"Agra","Lucknow","Merrut"},
-            {"Karnal","Panipat"},
-            {"Jaipur","Jaiselmer"}
+            {"Delhi", "Gurgaon", "Noida"},
+            {"Agra", "Lucknow", "Merrut"},
+            {"Karnal", "Panipat"},
+            {"Jaipur", "Jaiselmer"}
     };
 
     @BeforeAll
@@ -84,7 +81,7 @@ public class RegistrationFormTests {
                 Condition.text(subjectsInput[0]),
                 Condition.text(hobbiesWrapper[0]),
                 //Condition.text(filePath),
-                Condition.text("image.jpg"),
+                Condition.text(fileName),
                 Condition.text(currentAddress),
                 Condition.text(state[0] + " " + city[0][0])
         );
