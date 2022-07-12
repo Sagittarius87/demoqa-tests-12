@@ -1,23 +1,34 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.*;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTests {
 
-    String firstName = "Bob";
-    String lastName = "Rob";
-    String userEmail = "Bob@sobaka.com";
+    Faker faker = new Faker(new Locale("en"));
+
+    //String firstName = "Bob";
+    String firstName = faker.name().firstName();
+    //String lastName = "Rob";
+    String lastName = faker.name().lastName();
+    //String userEmail = "Bob@sobaka.com";
+    String userEmail = faker.internet().emailAddress();
     String[] genterWrapper = new String[]{"Male", "Female", "Other"};
-    String userNumber = "1111111111";
+    //String userNumber = "1111111111";
+    String userNumber = String.valueOf(faker.number().randomNumber(10,true));
+    //String dateOfBirthMonth = faker.date().birthday().toString();
     String dateOfBirthMonth = "May";
     String dateOfBirthYear = "2022";
     String dateOfBirthDay = "20";
     String[] subjectsInput = new String[]{"Maths", "Chemistry", "Computer Sciens", "Commerce", "Economics"};
     String[] hobbiesWrapper = new String[]{"Sports", "Reading", "Music"};
-    String currentAddress = "ulitsa Lesnaya, 5, kv. 176 Moscow Russia 125075";
+    //String currentAddress = "ulitsa Lesnaya, 5, kv. 176 Moscow Russia 125075";
+    String currentAddress = faker.address().fullAddress();
     String filePath = "img/image.jpg";
     String fileName = "image.jpg";
     String[] state = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
